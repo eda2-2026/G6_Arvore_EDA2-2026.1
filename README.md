@@ -90,4 +90,14 @@ Observacao:
 
 ## Video de explicacao do projeto
 
-Link do video sera adicionado apos a gravacao.
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=wm5dVG0IBjI
+YouTube">
+    <img src="https://img.shields.io/badge/VIDEO%20ENTREGA%20FINAL-ADICIONAR%20LINK-red?style=for-the-badge&logo=youtube" alt="Video da Entrega Final">
+  </a>
+</p>
+
+### Link do Video Gravado
+
+> Video da entrega:
+> **https://www.youtube.com/watch?v=wm5dVG0IBjI**
