@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EDA 2 - Visualizador de Arvores</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">EDA 2 - Estruturas de Dados</p>
+        <h1>Visualizador de Arvores de Ordenacao</h1>
+      </div>
+      <div class="header-actions" aria-label="Exportacao">
+        <button class="icon-btn" id="export-json" type="button" title="Exportar estado JSON" aria-label="Exportar estado JSON">{ }</button>
+        <button class="icon-btn" id="export-svg" type="button" title="Baixar SVG" aria-label="Baixar SVG">svg</button>
+      </div>
+    </header>
+
+    <nav class="tabs" aria-label="Estruturas">
+      <button class="tab-btn active" type="button" data-mode="bst">BST</button>
+      <button class="tab-btn" type="button" data-mode="avl">AVL</button>
+      <button class="tab-btn" type="button" data-mode="heap">Heap Max</button>
+      <button class="tab-btn" type="button" data-mode="heapsort">HeapSort</button>
+      <button class="tab-btn" type="button" data-mode="btree">B-Tree</button>
+    </nav>
+
+    <main class="workbench">
+      <section class="tool-panel" aria-label="Controles">
+        <div class="control-group value-entry">
+          <label for="value-input">Valor</label>
+          <input id="value-input" type="number" inputmode="numeric" min="-9999" max="9999" placeholder="42">
+        </div>
+
+        <div class="control-group value-entry compact-entry">
+          <label for="random-count">Qtd. aleatoria</label>
+          <input id="random-count" type="number" inputmode="numeric" min="1" max="31" value="8">
+        </div>
+
+        <div class="control-grid">
+          <button class="btn primary action-btn" id="insert-btn" type="button"><span>+</span>Inserir</button>
+          <button class="btn action-btn" id="remove-btn" type="button"><span>-</span><span id="remove-label">Remover</span></button>
+          <button class="btn action-btn" id="search-btn" type="button"><span>?</span>Buscar</button>
+          <button class="btn action-btn" id="random-btn" type="button"><span>*</span>Aleatorio</button>
+          <button class="btn danger action-btn" id="clear-btn" type="button"><span>x</span>Limpar</button>
+          <button class="btn action-btn" id="sort-btn" type="button"><span>&gt;</span>Ordenar</button>
+        </div>
+
+        <div class="control-row">
+          <label for="speed-input">Velocidade</label>
+          <input id="speed-input" type="range" min="1" max="5" value="3">
+          <output id="speed-output" for="speed-input">3x</output>
+        </div>
+
+        <div class="segmented" role="group" aria-label="Modo de animacao">
+          <button class="segment active" id="continuous-mode" type="button">Continuo</button>
+          <button class="segment" id="step-mode" type="button">Passo</button>
+          <button class="segment" id="next-step" type="button" disabled>Proximo</button>
+        </div>
+
+        <div class="traversal-actions" aria-label="Percursos">
+          <button class="btn small traversal-btn action-btn" type="button" data-traversal="inorder">Inorder</button>
+          <button class="btn small traversal-btn action-btn" type="button" data-traversal="preorder">Preorder</button>
+          <button class="btn small traversal-btn action-btn" type="button" data-traversal="postorder">Postorder</button>
+        </div>
+      </section>
+
+      <section class="canvas-panel" aria-label="Visualizacao">
+        <svg id="tree-svg" viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Visualizacao da arvore">
+          <title>Visualizacao da arvore</title>
+        </svg>
+      </section>
+    </main>
+
+    <section class="status-area" aria-label="Status">
+      <div id="log-panel" class="log-panel" aria-live="polite">Pronto. Insira valores para comecar.</div>
+      <div id="traversal-panel" class="traversal-panel" hidden></div>
+      <div class="stats-row">
+        <span>Nos <strong id="stat-nodes">0</strong></span>
+        <span>Altura <strong id="stat-height">0</strong></span>
+        <span>Rotacoes <strong id="stat-rotations">0</strong></span>
+        <span>Comparacoes <strong id="stat-comparisons">0</strong></span>
+        <span>Modo <strong id="stat-mode">BST</strong></span>
+      </div>
+    </section>
+  </div>
+
+  <script src="trees/bst.js"></script>
+  <script src="trees/avl.js"></script>
+  <script src="trees/heap.js"></script>
+  <script src="trees/heapsort.js"></script>
+  <script src="trees/btree.js"></script>
+  <script src="render/svg-renderer.js"></script>
+  <script src="render/animator.js"></script>
+  <script src="render/traversal.js"></script>
+  <script src="ui/controls.js"></script>
+  <script src="ui/export.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
